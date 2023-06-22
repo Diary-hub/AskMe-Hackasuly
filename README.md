@@ -1,1 +1,2 @@
-# Ask-Me-Hackasuly-
+# Ask-Me-Hackasuly
+This is an AI that can read and learn from your OWN files, like PDFs,Excel Files... and more. it doesn't matter who you are, a Student, Teacher, Curious Person, Dreamer, Company Owner, or just a Regular Person. Just upload your thoughts and talk to them! the possibilities are unlimited. HOW TO USE:- You upload as many files as you want, then that AI will look through them and study and remember all of them, then you can ask questions about the files, for example, if we have a PDF file thas about my Daily Life, I feed that PDF to the AI, then I ask, which day I did working out? what I did do in 2020? then it will answer based on the information you fed it.
