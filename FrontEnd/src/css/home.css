@@ -140,12 +140,102 @@ section {
 }
 
 
+body {
+    text-align: center;
+
+}
+
+.column {
+    float: left;
+    width: 50%;
+    margin-bottom: 14px;
+    padding: 0 8px;
+}
+
+.card {
+
+    overflow: hidden;
+}
+
+img {
+    border-radius: 50%;
+    width: 200px;
+    /* Adjust the size as desired */
+    height: 200px;
+    /* Adjust the size as desired */
+    margin: auto;
+
+    display: block;
+
+
+
+
+}
+
+.about-section {
+    padding: 0px 45px;
+    text-align: center;
+
+    background: var(--green);
+    color: white;
+    padding-bottom: 105px;
+    margin-bottom: 65px;
+
+}
+
+.container {
+    padding: 0 10px;
+}
+
+.container::after,
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: var(--green);
+    font-size: 2.5rem;
+    font-family: NRT_Bolt;
+}
+
+.job {
+    color: var(--black);
+    font-size: 2rem;
+    font-family: NRT_Bolt;
+}
+
+
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
 
 @media (max-width:1024px) {
 
-    html{
+    html {
         font-size: 50%;
     }
+
     header {
         padding: 12px 20px;
     }
@@ -166,7 +256,7 @@ section {
         font-size: 5rem;
         padding-right: 40px;
         transition: 0.7s ease;
-    
+
     }
 
 
@@ -175,29 +265,30 @@ section {
 
 @media (max-width:641px) {
 
-    html{
+    html {
         font-size: 45%;
     }
-    
+
     .main .social-icons a {
         color: var(--dark_gray);
         font-size: 5rem;
         padding-right: 30px;
         transition: 0.7s ease;
-    
+
     }
 
 }
 
 @media (max-width:300px) {
 
-    html{
+    html {
         font-size: 40%;
     }
+
     .main .social-icons a {
         padding-right: 25px;
-    
+
     }
 
-    
+
 }
