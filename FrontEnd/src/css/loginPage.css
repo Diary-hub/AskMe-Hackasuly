@@ -141,8 +141,6 @@ header .login_form ul li h3 {
     margin: 1.5rem 0;
     color: var(--black);
     font-size: 2rem;
-    border-radius: 5rem;
-    text-decoration: none;
 }
 
 header .login_form ul li .form_input {
@@ -159,7 +157,7 @@ header .login_form ul li .form_input {
     border-left: none;
     border-right: none;
     border-bottom: .2rem solid var(--gray);
-    text-decoration: none;
+
 }
 
 
@@ -182,6 +180,7 @@ header .login_form ul li .form_submit {
     font-size: 1.6rem;
     border: none;
     border-radius: 50rem;
+    text-align: center;
 
 
 
