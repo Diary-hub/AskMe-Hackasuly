@@ -45,12 +45,12 @@ def getEmbeddings():
         response = "Error While Creating Embeddings"
     else:
         response = "Created Embeddings"
-    print("this is first conv \n", conversation)
-    print("this is the responce \n", response)
-    print("this is the vectorStore \n", vectorStore)
-    print("this is middle conv \n", conversation)
+    # print("this is first conv \n", conversation)
+    # print("this is the responce \n", response)
+    # print("this is the vectorStore \n", vectorStore)
+    # print("this is middle conv \n", conversation)
     print("this is the answer \n", answer)
-    print("this is last conv \n", conversation)
+    # print("this is last conv \n", conversation)
 
     reply = {"reply": response}
     # , "embedding": vectorStore
