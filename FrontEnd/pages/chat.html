@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <link rel="stylesheet" href="../src/css/chat.css">
+    <title>پرسیار</title>
+    
+</head>
+
+<body>
+    <header>
+        <a href="#main">
+            <svg width="90" height="80" viewBox="0 0 296 296" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_d_17_105)">
+                    <rect x="48" y="28" width="200" height="200" rx="16" fill="#EBF5FF" />
+                </g>
+                <path
+                    d="M148 70C115.967 70 90 95.9674 90 128C90 145.953 98.1586 162.001 110.969 172.639L111.206 172.528V169.412C111.206 164.321 115.347 160.179 120.438 160.179H175.562C180.653 160.179 184.794 164.321 184.794 169.412V172.528L185.031 172.639C197.841 162.001 206 145.953 206 128C206 95.9674 180.033 70 148 70Z"
+                    fill="#149C51" />
+                <path d="M129.536 155.348H166.467V160.179H129.536V155.348Z" fill="white" />
+                <path d="M129.536 155.348H139.006V160.179H129.536V155.348Z" fill="#EAF6FF" />
+                <path
+                    d="M175.564 159.943H120.441C115.211 159.943 110.971 164.182 110.971 169.412V172.639C121.017 180.982 133.923 186 148.002 186C162.081 186 174.987 180.982 185.033 172.639V169.412C185.033 164.182 180.793 159.943 175.564 159.943Z"
+                    fill="#D8ECFE" />
+                <path
+                    d="M120.814 169.412C120.814 164.182 125.053 159.943 130.283 159.943H120.441C115.211 159.943 110.971 164.182 110.971 169.412V172.639C114.006 175.16 117.303 177.374 120.814 179.241V169.412Z"
+                    fill="#C4E2FF" />
+                <path
+                    d="M148.899 178.291L155.674 170.439C156.335 169.672 155.79 168.482 154.777 168.482H141.228C140.215 168.482 139.67 169.672 140.332 170.439L147.107 178.291C147.579 178.839 148.427 178.839 148.899 178.291Z"
+                    fill="white" />
+                <path
+                    d="M145.215 170.439C144.553 169.672 145.098 168.482 146.111 168.482H141.228C140.215 168.482 139.67 169.672 140.332 170.439L147.106 178.291C147.579 178.839 148.427 178.839 148.899 178.291L150.444 176.5L145.215 170.439Z"
+                    fill="#EAF6FF" />
+                <path
+                    d="M110.575 144.507V134.232C110.575 132.343 110.763 130.497 111.119 128.71H109.389C105.893 128.71 103.059 131.544 103.059 135.04V140.421C103.059 143.917 105.893 146.751 109.389 146.751H110.81C110.657 146.027 110.575 145.276 110.575 144.507V144.507Z"
+                    fill="white" />
+                <path
+                    d="M186.616 128.71H184.887C185.242 130.496 185.43 132.343 185.43 134.232V144.507C185.43 145.277 185.348 146.027 185.195 146.751H186.617C190.113 146.751 192.947 143.917 192.947 140.421V135.04C192.946 131.544 190.112 128.71 186.616 128.71V128.71Z"
+                    fill="white" />
+                <path
+                    d="M174.588 155.585H121.416C115.298 155.585 110.338 150.625 110.338 144.508V134.232C110.338 118.5 123.092 105.747 138.823 105.747H157.181C172.913 105.747 185.666 118.5 185.666 134.232V144.508C185.666 150.625 180.706 155.585 174.588 155.585Z"
+                    fill="#D8ECFE" />
+                <path
+                    d="M122.672 144.507V140.825C120.887 138.308 119.834 135.239 119.834 131.926C119.834 126.354 122.803 121.464 127.242 118.753C132.319 110.926 141.133 105.747 151.157 105.747H138.824C123.092 105.747 110.338 118.5 110.338 134.232V144.508C110.338 150.625 115.298 155.585 121.416 155.585H133.749C127.631 155.585 122.672 150.625 122.672 144.507V144.507Z"
+                    fill="#C4E2FF" />
+                <path
+                    d="M135.258 147.35C126.753 147.35 119.834 140.431 119.834 131.926C119.834 123.421 126.753 116.502 135.258 116.502H160.748C169.252 116.502 176.172 123.421 176.172 131.926C176.172 140.431 169.252 147.35 160.748 147.35H135.258Z"
+                    fill="#116D9A" />
+                <path
+                    d="M129.774 131.926C129.774 123.421 136.694 116.502 145.198 116.502H135.258C126.753 116.502 119.834 123.421 119.834 131.926C119.834 140.431 126.753 147.35 135.258 147.35H145.198C136.694 147.35 129.774 140.431 129.774 131.926V131.926Z"
+                    fill="#005E89" />
+                <path
+                    d="M156.232 139.364H139.774C138.9 139.364 138.191 138.655 138.191 137.781V135.249C138.191 134.375 138.9 133.666 139.774 133.666H156.232C157.106 133.666 157.815 134.375 157.815 135.249V137.781C157.815 138.655 157.106 139.364 156.232 139.364Z"
+                    fill="#F2C94C" />
+                <path
+                    d="M135.421 131.768H131.306C130.432 131.768 129.724 131.059 129.724 130.185V126.07C129.724 125.196 130.432 124.488 131.306 124.488H135.421C136.295 124.488 137.003 125.196 137.003 126.07V130.185C137.003 131.059 136.295 131.768 135.421 131.768Z"
+                    fill="#F2C94C" />
+                <path
+                    d="M164.696 131.768H160.582C159.708 131.768 158.999 131.059 158.999 130.185V126.07C158.999 125.196 159.708 124.488 160.582 124.488H164.696C165.57 124.488 166.279 125.196 166.279 126.07V130.185C166.279 131.059 165.57 131.768 164.696 131.768Z"
+                    fill="#F2C94C" />
+
+                <defs>
+                    <filter id="filter0_d_17_105" x="0" y="0" width="296" height="296" filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha" />
+                        <feOffset dy="20" />
+                        <feGaussianBlur stdDeviation="24" />
+                        <feColorMatrix type="matrix"
+                            values="0 0 0 0 0.290196 0 0 0 0 0.6 0 0 0 0 0.964706 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_17_105" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_17_105" result="shape" />
+                    </filter>
+                </defs>
+            </svg>
+        </a>
+        <nav class="nav">
+            <a href="" id="out">x</a>
+            <a href="../pages/home.html">سەرەکی</a>
+            <a href="">پرسیار</a>
+            <a href="../pages/AboutUs.html">دەربارە</a>
+        </nav>
+    </header>
+
+    <section class="side_page">
+
+        <div class="user">
+
+            <img src="img/1685982311295.jpg" alt="">
+
+            <h3 class="name">Rawand Kawa</h3>
+            <p class="post">web developer</p>
+        </div>
+
+        <div class="navbar1">
+            <ul>
+                <li>
+                    <a href="">home</a>
+                </li>
+                <li>
+                    <a href="">chat</a>
+                </li>
+                <li>
+                    <a href="">about</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </section>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+
+    
+    <section>
+
+
+
+
+        <div class="card">
+
+            <div class="card-body msg_card_body">
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer">
+                        Hi, how are you samim?
+                        <span class="msg_time">8:40 AM, Today</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer">
+                        Hi, how are you samim?
+                        <span class="msg_time">8:40 AM, Today</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer">
+                        Hi, how are you samim?
+                        <span class="msg_time">8:40 AM, Today</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer">
+                        Hi, how are you samim?
+                        <span class="msg_time">8:40 AM, Today</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end mb-4">
+                    <div class="msg_cotainer_send">
+                        Hi Khalid i am good tnx how about you?
+                        <span class="msg_time_send">8:55 AM, Today</span>
+                    </div>
+                    <div class="img_cont_msg">
+                        <img src="https://avatars.hsoubcdn.com/ed57f9e6329993084a436b89498b6088?s=256"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer">
+                        I am good too, thank you for your chat template
+                        <span class="msg_time">9:00 AM, Today</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer">
+                        I am good too, thank you for your chat template
+                        <span class="msg_time">9:00 AM, Today</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer">
+                        I am good too, thank you for your chat template
+                        <span class="msg_time">9:00 AM, Today</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer">
+                        I am good too, thank you for your chat template
+                        <span class="msg_time">9:00 AM, Today</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end mb-4">
+                    <div class="msg_cotainer_send">
+                        You are welcome
+                        <span class="msg_time_send">9:05 AM, Today</span>
+                    </div>
+                    <div class="img_cont_msg">
+                        <img src="https://avatars.hsoubcdn.com/ed57f9e6329993084a436b89498b6088?s=256"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer">
+                        I am looking for your next templates
+                        <span class="msg_time">9:07 AM, Today</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end mb-4">
+                    <div class="msg_cotainer_send">
+                        Ok, thank you have a good day
+                        <span class="msg_time_send">9:10 AM, Today</span>
+                    </div>
+                    <div class="img_cont_msg">
+                        <img src="https://avatars.hsoubcdn.com/ed57f9e6329993084a436b89498b6088?s=256"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                            class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer">
+                        Bye, see you
+                        <span class="msg_time">9:12 AM, Today</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+                    </div>
+                    <textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                    <div class="input-group-append">
+                        <span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+
+
+    <script src="../src/javascript/jquery-3.6.0.min.js"></script>
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../src/javascript/chat.js"></script>
+
+</body>
+
+</html>
