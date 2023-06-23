@@ -21,6 +21,30 @@
             box-sizing: border-box;
         }
 
+
+        nav{
+
+            padding: 45px;
+            text-align: right;
+         
+          font-size: 30px;
+            background: var(--green);
+            color: white;
+            padding-bottom: 60px;
+            margin-bottom: 65px;
+        }
+        .nav a {
+    text-decoration: none;
+    color: var(--background);
+    font-weight: 700;
+    font-size: 2rem;
+    padding-left: 5rem;
+    transition: 0.5s ease-in-out;
+}
+
+.nav a:hover {
+    color: rgb(121, 121, 121);
+}
         *,
         *:before,
         *:after {
@@ -102,11 +126,78 @@
                 display: block;
             }
         }
+        @media (max-width:1024px) {
+
+html{
+    font-size: 50%;
+}
+header {
+    padding: 12px 20px;
+}
+
+.nav a {
+    padding-left: 10px;
+}
+
+
+
+section {
+    padding: 80px 20px;
+}
+
+
+.main .social-icons a {
+    color: var(--dark_gray);
+    font-size: 5rem;
+    padding-right: 40px;
+    transition: 0.7s ease;
+
+}
+
+
+
+}
+
+@media (max-width:641px) {
+
+html{
+    font-size: 45%;
+}
+
+.main .social-icons a {
+    color: var(--dark_gray);
+    font-size: 5rem;
+    padding-right: 30px;
+    transition: 0.7s ease;
+
+}
+
+}
+
+@media (max-width:300px) {
+
+html{
+    font-size: 40%;
+}
+.main .social-icons a {
+    padding-right: 25px;
+
+}
+
+
+}
     </style>
 </head>
 
 <body>
-    <div class="about-section"></div>
+    <nav class="nav" class="about-section">
+        <a href="" id="out">x</a>
+        <a href="../pages/home.html">سەرەکی</a>
+        <a href="">پرسیار</a>
+        <a href="../pages/AboutUs.html">دەربارە</a>
+       
+      </nav>
+   
     <h2 style="text-align:center"></h2>
     <div class="row">
         <div class="column">
