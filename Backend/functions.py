@@ -1,3 +1,4 @@
+from sqlalchemy import null
 import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
@@ -7,6 +8,9 @@ from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
+import json
+from dotenv import load_dotenv
+import os
 
 # from templates import css, bot_template, user_template
 
@@ -114,4 +118,28 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    null
+
+
+import requests
+
+load_dotenv()
+headers = {
+    "accept": "application/json",
+    "Authorization": os.getenv("ASOSOFT"),
+    # requests won't add a boundary if this header is set when you pass files=
+    # 'Content-Type': 'multipart/form-data',
+}
+
+files = {
+    "audio": open("Backend\Recording.mp3", "rb"),
+}
+
+response = requests.post(
+    "https://api.kurdishspeech.com/api/v1/asr/speech-to-text",
+    headers=headers,
+    files=files,
+)
+
+print(response.json())

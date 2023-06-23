@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Test extends StatefulWidget {
-  const Test({Key? key});
+  const Test({super.key});
 
   @override
   State<Test> createState() => _TestState();
@@ -21,14 +21,14 @@ class _TestState extends State<Test> {
     return Scaffold(
       body: Column(
         children: [
-          Text("slawSs"),
+          const Text("slawSs"),
           Padding(
             padding: const EdgeInsets.only(top: 50),
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => Login_page()),
+                  MaterialPageRoute(builder: (context) => const Login_page()),
                 );
               },
               child: const Text(
