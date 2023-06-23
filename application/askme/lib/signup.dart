@@ -76,158 +76,167 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           backgroundColor: const Color(0xFFFAF9F7),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
-                  child: const Center(
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 40),
-                      child: Text(
-                        "لێم بپرسە",
-                        style: TextStyle(
-                          color: Color(0xFF119C59),
-                          fontSize: 48,
-                          fontFamily: 'Montserrat',
-                        ),
+          body: ListView(
+            children: [
+              Container(
+                child: const Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 40),
+                    child: Text(
+                      " ! لێم بپرسە",
+                      style: TextStyle(
+                        color: Color(0xFF119C59),
+                        fontSize: 48,
+                        fontFamily: 'Montserrat',
                       ),
                     ),
                   ),
                 ),
-                Container(
-                  child: const Center(
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 40),
-                      child: Text(
-                        " دروستکردنی هەژمار",
-                        style: TextStyle(
-                          color: Color(0xFF119C59),
-                          fontSize: 30,
-                          fontFamily: 'Montserrat',
-                        ),
+              ),
+              Container(
+                child: const Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 40),
+                    child: Text(
+                      " دروستکردنی هەژمار",
+                      style: TextStyle(
+                        color: Color(0xFF119C59),
+                        fontSize: 30,
+                        fontFamily: 'Montserrat',
                       ),
                     ),
                   ),
                 ),
-                Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 50,
-                          left: 50,
-                          right: 50,
-                        ),
-                        child: TextFormField(
-                          controller: usernameController,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'ناوی بەکارهێنەر',
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'تکایە ناوی بەکارهێنەر بنووسە';
-                            }
-                            return null;
-                          },
-                        ),
+              ),
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 50,
+                        left: 50,
+                        right: 50,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 20,
-                          left: 50,
-                          right: 50,
+                      child: TextFormField(
+                        controller: usernameController,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'ناوی بەکارهێنەر',
                         ),
-                        child: TextFormField(
-                          controller: emailController,
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'ئیمەیڵ',
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'تکایە ئیمەیڵەکەت بنووسە';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 20,
-                          left: 50,
-                          right: 50,
-                        ),
-                        child: TextFormField(
-                          controller: passwordController,
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'وشەی نهێنی',
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'تکایە وشەی نهێنی بنووسە';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 20,
-                          left: 50,
-                          right: 50,
-                        ),
-                        child: TextFormField(
-                          controller: confirmPasswordController,
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'دڵنیابکەرەوەی وشەی نهێنی',
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'تکایە دڵنیابکەرەوەی وشەی نهێنی بنووسە';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF119C59)),
-                        onPressed: signUp,
-                        child: const Text('خۆتۆمارکردن'),
-                      ),
-                      const SizedBox(height: 20),
-                      const SizedBox(height: 40),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Login_page(),
-                            ),
-                          );
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'تکایە ناوی بەکارهێنەر بنووسە';
+                          }
+                          return null;
                         },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 20,
+                        left: 50,
+                        right: 50,
+                      ),
+                      child: TextFormField(
+                        controller: emailController,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'ئیمەیڵ',
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'تکایە ئیمەیڵەکەت بنووسە';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 20,
+                        left: 50,
+                        right: 50,
+                      ),
+                      child: TextFormField(
+                        controller: passwordController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'وشەی نهێنی',
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'تکایە وشەی نهێنی بنووسە';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 20,
+                        left: 50,
+                        right: 50,
+                      ),
+                      child: TextFormField(
+                        controller: confirmPasswordController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'دڵنیابکەرەوەی وشەی نهێنی',
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'تکایە دڵنیابکەرەوەی وشەی نهێنی بنووسە';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 50),
+                    SizedBox(
+                      width: 200,
+                      height: 50,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  20), // Set the desired radius here
+                            ),
+                            backgroundColor: const Color(0xFF119C59)),
+                        onPressed: signUp,
                         child: const Text(
-                          "چوونەژورەوە",
-                          style: TextStyle(
-                            color: Color(0xFF119C59),
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          'خۆتۆمارکردن',
+                          style: TextStyle(fontSize: 23),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 20),
+                    const SizedBox(height: 40),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Login_page(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        "چوونەژورەوە",
+                        style: TextStyle(
+                          color: Color(0xFF119C59),
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

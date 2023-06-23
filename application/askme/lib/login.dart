@@ -1,7 +1,7 @@
+import 'package:askme/test.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:askme/signup.dart';
-import 'package:askme/my_button.dart';
 
 class Login_page extends StatefulWidget {
   const Login_page({Key? key}) : super(key: key);
@@ -18,10 +18,18 @@ class _Login_pageState extends State<Login_page> {
   void signUserIn() async {
     if (_formKey.currentState?.validate() ?? false) {
       try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text,
-          password: passwordController.text,
-        );
+        await FirebaseAuth.instance
+            .signInWithEmailAndPassword(
+              email: emailController.text,
+              password: passwordController.text,
+            )
+            .then((value) => {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Test(),
+                      ))
+                });
       } on FirebaseAuthException catch (e) {
         String errorMessage = '';
         if (e.code == 'user-not-found') {
@@ -38,6 +46,7 @@ class _Login_pageState extends State<Login_page> {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Center(
         child: Scaffold(
@@ -52,7 +61,7 @@ class _Login_pageState extends State<Login_page> {
                     child: Padding(
                       padding: EdgeInsets.only(top: 40),
                       child: Text(
-                        "لێم بپرسە",
+                        "! لێم بپرسە",
                         style: TextStyle(
                           color: Color(0xFF119C59),
                           fontSize: 48,
@@ -81,61 +90,45 @@ class _Login_pageState extends State<Login_page> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 20, right: 30),
-                        child: SizedBox(
-                          width: 272,
-                          height: 55,
-                          child: TextFormField(
-                            controller: emailController,
-                            decoration: const InputDecoration(
-                              filled: true,
-                              fillColor: Colors.transparent,
-                              labelText:
-                                  "                                      ئیمەیڵەکەت داخڵ بکە ",
-                              floatingLabelBehavior: FloatingLabelBehavior.auto,
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFF119C59),
-                                ),
-                              ),
-                              labelStyle: TextStyle(color: Color(0xFF52575C)),
-                            ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'تکایە ئیمەیڵێک داخڵ بکە';
-                              }
-                              return null;
-                            },
+                        padding: const EdgeInsets.only(
+                          top: 20,
+                          left: 50,
+                          right: 50,
+                        ),
+                        child: TextFormField(
+                          controller: emailController,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'ئیمەیڵ',
                           ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'تکایە ئیمەیڵەکەت بنووسە';
+                            }
+                            return null;
+                          },
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 20, right: 30),
-                        child: SizedBox(
-                          width: 272,
-                          height: 55,
-                          child: TextFormField(
-                            controller: passwordController,
-                            decoration: const InputDecoration(
-                              filled: true,
-                              fillColor: Colors.transparent,
-                              labelText:
-                                  "                                      پاسۆدەکەت داخڵ بکە",
-                              floatingLabelBehavior: FloatingLabelBehavior.auto,
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFF119C59),
-                                ),
-                              ),
-                              labelStyle: TextStyle(color: Color(0xFF52575C)),
-                            ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'تکایە وشەینهێنی داخڵ بکە';
-                              }
-                              return null;
-                            },
+                        padding: const EdgeInsets.only(
+                          top: 20,
+                          left: 50,
+                          right: 50,
+                        ),
+                        child: TextFormField(
+                          controller: passwordController,
+                          obscureText: true,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'وشەی نهێنی',
                           ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'تکایە وشەی نهێنی بنووسە';
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ],
@@ -143,18 +136,44 @@ class _Login_pageState extends State<Login_page> {
                 ),
                 // sign in
 
-                My_Button(
-                  onTap: () {
-                    signUserIn();
-                  },
-                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 50),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          signUserIn();
+                        },
+                        child: Container(
+                          width: screenwidth * 0.5,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              color: const Color(0xFF119C59),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: const Center(
+                              child: Text(
+                            "چونەژورەوە",
+                            style: TextStyle(fontSize: 23, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                //
+                //
+                //
+                //
+                //
+                Padding(
+                  padding: const EdgeInsets.only(top: 40),
                   child: InkWell(
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => SignUpPage()),
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpPage()),
                       );
                     },
                     child: const Row(
