@@ -53,49 +53,24 @@ html::-webkit-scrollbar {
 
 html::-webkit-scrollbar-track {
 
-    background-color: #222;
+    background-color: var(--green);
 
 }
 
 
 html::-webkit-scrollbar-thumb {
 
-    background-color: var(--green);
+    background-color: var(--background);
 
 }
 
-::-webkit-scrollbar {
-    width: 1rem;
-}
-
-
-/* Track */
-
-::-webkit-scrollbar-track {
-    background-color: #222;
-}
-
-
-/* Handle */
-
-::-webkit-scrollbar-thumb {
-    background-color: var(--green);
-}
-
-
-/* Handle on hover */
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
 
 
 
 body {
-
-    background: var(--green);
     overflow-x: hidden;
-    margin-left: 35rem;
+    margin-left: 65rem;
+
 }
 
 header {
@@ -149,6 +124,7 @@ header .login_form ul li .form_input {
     margin: 1.5rem 0;
     width: 100%;
 
+
     font-family: NRT_Reg;
     background: var(--background);
     color: black;
@@ -191,5 +167,61 @@ header .login_form ul li .form_submit {
 
 header .login_form ul li .form_submit:hover {
     transform: scale(1.05);
+
+}
+
+
+
+
+
+.card {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: var(--green);
+
+}
+
+
+
+.msg_card_body {
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-flow: column;
+
+}
+
+
+.signUp_header {
+    font-family: NRT_Bolt;
+
+    font-size: 3rem;
+
+    color: var(--background);
+}
+
+.signUp_paragraph {
+    font-family: NRT_Reg;
+
+    font-size: 1.4rem;
+
+    color: var(--background);
+    margin: 1.5rem 0;
+
+}
+
+.signUp_btn {
+    font-family: NRT_Reg;
+    font-size: 1.4rem;
+    color: var(--background);
+    background: var(--green);
+    border: .2rem solid var(--background);
+    border-radius: 50rem;
+    padding: 1rem;
+    width: 100%;
+    margin: 1.5rem 0;
 
 }
