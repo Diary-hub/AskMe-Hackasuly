@@ -43,6 +43,24 @@ def getConversationChain(vectorStore):
     return conversationChain
 
 
+def getAnswer(user_question):
+    responce = st.session_state.conversation({"question": user_question})
+    chat_history = responce["chat_history"]
+
+    for i, msg in enumerate(chat_history):
+        if i % 2 == 0:
+            print(msg.content)
+            st.write(
+                # user_template.replace("{{MSG}}", msg.content), unsafe_allow_html=True
+            )
+        else:
+            print(msg.content)
+
+            st.write(
+                # bot_template.replace("{{MSG}}", msg.content), unsafe_allow_html=True
+            )
+
+
 def handleUserInput(user_question):
     responce = st.session_state.conversation({"question": user_question})
     st.session_state.chat_history = responce["chat_history"]

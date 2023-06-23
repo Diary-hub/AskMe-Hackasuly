@@ -13,6 +13,7 @@ CORS(app)
 
 
 vectorStore = ""
+conversation = ""
 
 
 @app.get("/")
@@ -21,26 +22,38 @@ def index_get():
 
 
 @app.post("/getEmbeddings")
-def getfaces():
-    print("GGGGGGGGG")
+async def getEmbeddings():
     resived = request.get_json()
     raw_texts = resived["texts"]
-    print(raw_texts)
+    user_question = resived["question"]
+
     # get raw texts
     # raw_texts = getAllTexts(pdf_docs)
 
     # get chunks
-    text_chunks = getChunksOfText(raw_texts)
+    text_chunks = await getChunksOfText(raw_texts)
 
     # create vectorStore => using embeddings
-    vectorStore = getVectorStore(text_chunks)
+    vectorStore = await getVectorStore(text_chunks)
+
+    # getting answer
+    conversation = await getConversationChain(vectorStore)
+
+    answer = await getAnswer(user_question)
 
     if vectorStore is None:
         response = "Error While Creating Embeddings"
     else:
         response = "Created Embeddings"
+    print(conversation, "")
+    print(response)
+    print(vectorStore)
+    print(conversation)
+    print(answer)
+    print(conversation)
 
     reply = {"reply": response}
+    # , "embedding": vectorStore
     return jsonify(reply)
 
 
