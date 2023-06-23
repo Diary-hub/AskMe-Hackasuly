@@ -17,8 +17,13 @@ conversation = ""
 
 
 @app.get("/")
-def index_get():
+def loginPage_get():
     return render_template("loginPage.html")
+
+
+@app.get("/signUp.html")
+def signupPage_get():
+    return render_template("signUp.html")
 
 
 @app.post("/getEmbeddings")
