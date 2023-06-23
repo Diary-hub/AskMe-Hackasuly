@@ -21,9 +21,14 @@ def loginPage_get():
     return render_template("loginPage.html")
 
 
-@app.get("/signUp.html")
+@app.get("/register")
 def signupPage_get():
     return render_template("signUp.html")
+
+
+@app.get("/home")
+def homePage_get():
+    return render_template("homepage.html")
 
 
 @app.post("/getEmbeddings")
