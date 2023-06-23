@@ -20,11 +20,12 @@ def index_get():
     return render_template("loginPage.html")
 
 
-@app.route("/getEmbeddings", methods=["POST"])
+@app.post("/getEmbeddings")
 def getfaces():
+    print("GGGGGGGGG")
     resived = request.get_json()
     raw_texts = resived["texts"]
-
+    print(raw_texts)
     # get raw texts
     # raw_texts = getAllTexts(pdf_docs)
 

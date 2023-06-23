@@ -7,7 +7,8 @@ from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
-from templates import css, bot_template, user_template
+
+# from templates import css, bot_template, user_template
 
 
 def getChunksOfText(raw_texts):
@@ -49,11 +50,11 @@ def handleUserInput(user_question):
     for i, msg in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
             st.write(
-                user_template.replace("{{MSG}}", msg.content), unsafe_allow_html=True
+                # user_template.replace("{{MSG}}", msg.content), unsafe_allow_html=True
             )
         else:
             st.write(
-                bot_template.replace("{{MSG}}", msg.content), unsafe_allow_html=True
+                # bot_template.replace("{{MSG}}", msg.content), unsafe_allow_html=True
             )
 
 
@@ -65,7 +66,7 @@ def main():
         st.session_state.chat_history = None
 
     st.set_page_config(page_title="ASKME", page_icon="books:")
-    st.write(css, unsafe_allow_html=True)
+    # st.write(css, unsafe_allow_html=True)
     st.header("CHAT WITH YOUR... EVERYTHINHG")
     user_question = st.text_input("ASK ANYTHING...")
 
