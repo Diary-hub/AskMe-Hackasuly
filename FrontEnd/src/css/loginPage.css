@@ -8,6 +8,7 @@
     src: url(../font/NRT-Reg.ttf);
 }
 
+
 :root {
     --green: #119C59;
     --lite_gray: #e8e8e8;
@@ -17,6 +18,10 @@
     --background: #faf9f7;
 }
 
+label{
+    position: absolute;
+    text-align: right;
+}
 
 
 * {
