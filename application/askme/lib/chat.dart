@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'Message.dart';
+// ignore: unused_import
 import 'package:http/http.dart' as http;
 
 class MessagingScreen extends StatefulWidget {
+  const MessagingScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _MessagingScreenState createState() => _MessagingScreenState();
 }
 
@@ -26,7 +30,7 @@ class _MessagingScreenState extends State<MessagingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Messaging App'),
+        title: const Text('Messaging App'),
       ),
       body: Column(
         children: [
@@ -44,7 +48,7 @@ class _MessagingScreenState extends State<MessagingScreen> {
           ),
           TextField(
             onSubmitted: sendMessage,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Type your message',
             ),
           ),
