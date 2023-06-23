@@ -36,7 +36,7 @@
               <input
                 class="form_input"
                 class="form-control"
-                id="floatingInput"
+                id="email"
                 type="email"
                 placeholder="ئیمەیڵ"
                 required
@@ -44,6 +44,7 @@
             </li>
             <li>
               <input
+                id="password"
                 class="form_input"
                 type="password"
                 placeholder="وشەی نهێنی"
@@ -51,7 +52,12 @@
               />
             </li>
             <li>
-              <input class="form_submit" type="submit" value="چوونە ژوورەوە" />
+              <input
+                id="submitButton"
+                class="form_submit"
+                type="button"
+                value="چوونە ژوورەوە"
+              />
             </li>
           </ul>
         </form>
@@ -261,7 +267,7 @@
 
       const userEmail = document.querySelector("#email");
       const userPassword = document.querySelector("#password");
-      const signUpButton = document.querySelector("#submitButton");
+      const signInButton = document.querySelector("#submitButton");
 
       const userSignUp = async () => {
         const signUpEmail = userEmail.value;
@@ -269,7 +275,7 @@
         createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
           .then((userCredential) => {
             const user = userCredential.user;
-            console.log(user);
+            console.log(user["email"]);
             alert("Your account has been created!");
           })
           .catch((error) => {
@@ -297,7 +303,8 @@
       const checkAuthState = async () => {
         onAuthStateChanged(auth, (user) => {
           if (user) {
-            console.log(user);
+            console.log(user["email"]);
+            window.location.replace("http://127.0.0.1:5000/home");
           } else {
             console.log("not User");
           }
@@ -310,9 +317,7 @@
 
       checkAuthState();
 
-      signUpButton.addEventListener("click", userSignUp);
       signInButton.addEventListener("click", userSignIn);
-      signOutButton.addEventListener("click", userSignOut);
     </script>
   </body>
 </html>
