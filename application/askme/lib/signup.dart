@@ -13,39 +13,62 @@ class _SignUp_PageState extends State<SignUp_Page> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  bool isPasswordValid() {
-    final password = passwordController.text;
-    return password.length >= 8 && password.length <= 16;
+  String? usernameErrorText;
+  String? emailErrorText;
+  String? passwordErrorText;
+
+  bool validateForm() {
+    bool isValid = true;
+
+    if (usernameController.text.isEmpty) {
+      setState(() {
+        usernameErrorText = 'تکایە ناوەکەت تۆماربکە';
+      });
+      isValid = false;
+    } else {
+      setState(() {
+        usernameErrorText = null;
+      });
+    }
+
+    if (emailController.text.isEmpty) {
+      setState(() {
+        emailErrorText = 'تکایە ئیمەیڵەکەت تۆماربکە';
+      });
+      isValid = false;
+    } else {
+      setState(() {
+        emailErrorText = null;
+      });
+    }
+
+    if (passwordController.text.isEmpty) {
+      setState(() {
+        passwordErrorText = 'تکایە وشەی نهێنی تۆمار بکە';
+      });
+      isValid = false;
+    } else if (passwordController.text.length < 8 ||
+        passwordController.text.length > 16) {
+      setState(() {
+        passwordErrorText = 'وشەی نهێنی پێویستە لە نێوان ٨ و ١٦ کارەکتەربێت';
+      });
+      isValid = false;
+    } else {
+      setState(() {
+        passwordErrorText = null;
+      });
+    }
+
+    return isValid;
   }
 
   void signUp() {
-    if (!isPasswordValid()) {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Password Validation'),
-            content: Text(
-                'The password should be between 8 and 16 characters long.'),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
-      return;
+    if (validateForm()) {
+      // Perform signup logic here
+      // If all fields are valid, proceed with signup process
+      // Otherwise, the error messages will be displayed
+      // and the user won't be able to proceed until the fields are fixed
     }
-
-    // Code to send signup data to Firebase authentication
-    // ...
-
-    // Clear the text fields after signup
-    usernameController.clear();
-    emailController.clear();
-    passwordController.clear();
   }
 
   @override
@@ -102,23 +125,23 @@ class _SignUp_PageState extends State<SignUp_Page> {
                         height: 55,
                         child: TextFormField(
                           controller: usernameController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.transparent,
-                            labelText:
-                                ("                                          ناوەکەت داخڵ بکە "),
+                            labelText: "ناوەکەت داخڵ بکە",
                             floatingLabelBehavior: FloatingLabelBehavior.auto,
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0xFF119C59),
-                              ), // Set your desired color here
+                              ),
                             ),
                             labelStyle: TextStyle(color: Color(0xFF52575C)),
+                            errorText: usernameErrorText,
                           ),
                         ),
                       ),
                     ),
-                    //email
+                    // email
                     Padding(
                       padding: const EdgeInsets.only(top: 20, right: 30),
                       child: SizedBox(
@@ -126,23 +149,23 @@ class _SignUp_PageState extends State<SignUp_Page> {
                         height: 55,
                         child: TextFormField(
                           controller: emailController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.transparent,
-                            labelText:
-                                ("                                      ئیمەیڵەکەت داخڵ بکە"),
+                            labelText: "ئیمەیڵەکەت داخڵ بکە",
                             floatingLabelBehavior: FloatingLabelBehavior.auto,
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0xFF119C59),
-                              ), // Set your desired color here
+                              ),
                             ),
                             labelStyle: TextStyle(color: Color(0xFF52575C)),
+                            errorText: emailErrorText,
                           ),
                         ),
                       ),
                     ),
-                    //password
+                    // password
                     Padding(
                       padding: const EdgeInsets.only(top: 20, right: 30),
                       child: SizedBox(
@@ -150,19 +173,18 @@ class _SignUp_PageState extends State<SignUp_Page> {
                         height: 55,
                         child: TextFormField(
                           controller: passwordController,
-                          obscureText: true,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.transparent,
-                            labelText:
-                                ("                                    پاسۆردەکەت داخڵ بکە "),
+                            labelText: "پاسۆردەکەت داخڵ بکە",
                             floatingLabelBehavior: FloatingLabelBehavior.auto,
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0xFF119C59),
-                              ), // Set your desired color here
+                              ),
                             ),
                             labelStyle: TextStyle(color: Color(0xFF52575C)),
+                            errorText: passwordErrorText,
                           ),
                         ),
                       ),
@@ -174,17 +196,15 @@ class _SignUp_PageState extends State<SignUp_Page> {
                         width: 272,
                         height: 55,
                         child: TextFormField(
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                            labelText:
-                                "                         دووبارە پاسۆردەکەت داخڵ بکە ",
+                          decoration: InputDecoration(
+                            labelText: "دووبارە پاسۆردەکەت داخڵ بکە",
                             filled: true,
                             fillColor: Colors.transparent,
                             floatingLabelBehavior: FloatingLabelBehavior.auto,
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0xFF119C59),
-                              ), // Set your desired color here
+                              ),
                             ),
                             labelStyle: TextStyle(color: Color(0xFF52575C)),
                           ),
@@ -207,16 +227,17 @@ class _SignUp_PageState extends State<SignUp_Page> {
                                   const Color.fromARGB(255, 236, 236, 236),
                             ),
                             onPressed: signUp,
-                            child: const Padding(
-                              padding: EdgeInsets.only(top: 9),
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 9),
                               child: Column(
                                 children: [
                                   Center(
                                     child: Text(
                                       " دروستکردنی هەژمار",
                                       style: TextStyle(
-                                          color: Color.fromARGB(255, 0, 0, 0),
-                                          fontSize: 20),
+                                        color: Color.fromARGB(255, 0, 0, 0),
+                                        fontSize: 20,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -237,9 +258,7 @@ class _SignUp_PageState extends State<SignUp_Page> {
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => Login_page(),
-                        ),
+                        MaterialPageRoute(builder: (context) => Login_page()),
                       );
                     },
                     child: const Center(
