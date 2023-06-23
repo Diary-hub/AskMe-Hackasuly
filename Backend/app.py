@@ -12,18 +12,35 @@ app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 CORS(app)
 
 
+vectorStore = ""
+
+
 @app.get("/")
 def index_get():
     return render_template("loginPage.html")
 
 
-@app.route("/WhoIsIt", methods=["GET", "POST"])
+@app.route("/getEmbeddings", methods=["POST"])
 def getfaces():
-    text = request.get_json()
-    response = Recognize(text["message"])
-    reply = {"answer": response}
+    resived = request.get_json()
+    raw_texts = resived["texts"]
+
+    # get raw texts
+    # raw_texts = getAllTexts(pdf_docs)
+
+    # get chunks
+    text_chunks = getChunksOfText(raw_texts)
+
+    # create vectorStore => using embeddings
+    vectorStore = getVectorStore(text_chunks)
+
+    if vectorStore is None:
+        response = "Error While Creating Embeddings"
+    else:
+        response = "Created Embeddings"
+
+    reply = {"reply": response}
     return jsonify(reply)
-    os.getenv("GCP_PROJECT_ID")
 
 
 if __name__ == "__main__":
