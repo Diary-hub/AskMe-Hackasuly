@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           options: DefaultFirebaseOptions.currentPlatform),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          return MaterialApp(
+          return const MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'لێم بپرسە',
             home: Login_page(),
