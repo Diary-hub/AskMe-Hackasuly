@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'Message.dart';
 // ignore: unused_import
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class MessagingScreen extends StatefulWidget {
   const MessagingScreen({super.key});
@@ -14,23 +15,80 @@ class MessagingScreen extends StatefulWidget {
 class _MessagingScreenState extends State<MessagingScreen> {
   List<Message> messages = [];
 
-  void sendMessage(String text) {
+  final TextEditingController msg = TextEditingController();
+
+  void sendMessage(String question) async {
+    if (question == '') {
+      return;
+    }
+    String msggg = '';
+
     // Code to send the user's question to the server using API and receive a response
     // Assuming the response is stored in a variable called 'response'
-    String response = 's';
+    await sendRequest('my name is Diary', question)
+        .then((value) => {msggg = value});
 
     setState(() {
-      messages.add(Message('User', text)); // Add user's question to the list
-      messages.add(
-          Message('Server', response)); // Add server's response to the list
+      messages
+          .add(Message('User', question)); // Add user's question to the list
+      messages
+          .add(Message('Server', msggg)); // Add server's response to the list
+      msg.clear();
     });
+  }
+
+  Future<String> sendRequest(String texts, String question) async {
+    var url = Uri.parse(
+        'http://10.147.17.49:5000/getEmbeddings'); // Replace with your API endpoint URL
+
+    var headers = {'Content-Type': 'application/json'};
+    var body = jsonEncode({'texts': texts, 'question': question});
+
+    var response = await http.post(
+      url,
+      headers: headers,
+      body: body,
+    );
+
+    if (response.statusCode == 200) {
+      // API call was successful
+      var jsonResponse = jsonDecode(response.body);
+      var reply = jsonResponse['reply'];
+      print(reply);
+
+      return reply;
+    } else {
+      // API call failed
+      throw Exception('Failed to send request. Status code: ${response.body}');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 248, 230, 230),
       appBar: AppBar(
-        title: const Text('Messaging App'),
+        backgroundColor: const Color(0xFF119C59),
+        centerTitle: true,
+        title: RichText(
+          textAlign: TextAlign.center,
+          text: const TextSpan(children: [
+            TextSpan(
+                text: 'Ask Me!',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                )),
+            TextSpan(text: '\n'),
+            TextSpan(
+              text: "I'm not GPT guys 😉",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ]),
+        ),
       ),
       body: Column(
         children: [
@@ -39,17 +97,67 @@ class _MessagingScreenState extends State<MessagingScreen> {
               itemCount: messages.length,
               itemBuilder: (context, index) {
                 final message = messages[index];
-                return ListTile(
-                  title: Text(message.sender),
-                  subtitle: Text(message.content),
+                return Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: Row(
+                    mainAxisAlignment: message.sender == 'User'
+                        ? MainAxisAlignment.end
+                        : MainAxisAlignment.start,
+                    children: [
+                      if (message.sender == 'User')
+                        Flexible(
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Text(
+                              message.content,
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      if (message.sender != 'User')
+                        Flexible(
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Text(message.content),
+                          ),
+                        ),
+                    ],
+                  ),
                 );
               },
             ),
           ),
           TextField(
+            controller: msg,
             onSubmitted: sendMessage,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               hintText: 'Type your message',
+              filled: true,
+              fillColor: Colors.grey[200],
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(
+                    30), // Set the border radius to make the corners round
+                borderSide: BorderSide.none,
+              ),
+              suffixIcon: IconButton(
+                onPressed: () {
+                  // Code to send the message
+                  sendMessage(msg.text);
+                },
+                icon: const Icon(Icons.send),
+                color: Colors.blue,
+              ),
             ),
           ),
         ],

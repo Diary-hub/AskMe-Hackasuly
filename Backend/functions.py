@@ -122,24 +122,24 @@ if __name__ == "__main__":
     null
 
 
-import requests
+# import requests
 
-load_dotenv()
-headers = {
-    "accept": "application/json",
-    "Authorization": os.getenv("ASOSOFT"),
-    # requests won't add a boundary if this header is set when you pass files=
-    # 'Content-Type': 'multipart/form-data',
-}
+# load_dotenv()
+# headers = {
+#     "accept": "application/json",
+#     "Authorization": os.getenv("ASOSOFT"),
+#     # requests won't add a boundary if this header is set when you pass files=
+#     # 'Content-Type': 'multipart/form-data',
+# }
 
-files = {
-    "audio": open("Backend\Recording.mp3", "rb"),
-}
+# files = {
+#     "audio": open("Backend\Recording.mp3", "rb"),
+# }
 
-response = requests.post(
-    "https://api.kurdishspeech.com/api/v1/asr/speech-to-text",
-    headers=headers,
-    files=files,
-)
+# response = requests.post(
+#     "https://api.kurdishspeech.com/api/v1/asr/speech-to-text",
+#     headers=headers,
+#     files=files,
+# )
 
-print(response.json())
+# print(response.json())
