@@ -228,5 +228,16 @@ header .login_form ul li .form_submit:hover {
     padding: 1rem;
     width: 100%;
     margin: 1.5rem 0;
+    transition: .7s;
 
 }
+
+
+.signUp_btn:hover {
+    font-family: NRT_Reg;
+    font-size: 1.4rem;
+    color: var(--green);
+    background: var(--background);
+   
+}
+
