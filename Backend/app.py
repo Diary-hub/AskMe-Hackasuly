@@ -22,7 +22,7 @@ def index_get():
 
 
 @app.post("/getEmbeddings")
-async def getEmbeddings():
+def getEmbeddings():
     resived = request.get_json()
     raw_texts = resived["texts"]
     user_question = resived["question"]
@@ -31,26 +31,26 @@ async def getEmbeddings():
     # raw_texts = getAllTexts(pdf_docs)
 
     # get chunks
-    text_chunks = await getChunksOfText(raw_texts)
+    text_chunks = getChunksOfText(raw_texts)
 
     # create vectorStore => using embeddings
-    vectorStore = await getVectorStore(text_chunks)
+    vectorStore = getVectorStore(text_chunks)
 
     # getting answer
-    conversation = await getConversationChain(vectorStore)
+    conversation = getConversationChain(vectorStore)
 
-    answer = await getAnswer(user_question)
+    answer = getAnswer(user_question, conversation)
 
     if vectorStore is None:
         response = "Error While Creating Embeddings"
     else:
         response = "Created Embeddings"
-    print(conversation, "")
-    print(response)
-    print(vectorStore)
-    print(conversation)
-    print(answer)
-    print(conversation)
+    # print("this is first conv \n", conversation)
+    # print("this is the responce \n", response)
+    # print("this is the vectorStore \n", vectorStore)
+    # print("this is middle conv \n", conversation)
+    print("this is the answer \n", answer)
+    # print("this is last conv \n", conversation)
 
     reply = {"reply": response}
     # , "embedding": vectorStore
