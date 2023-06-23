@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 
 class Login_page extends StatefulWidget {
@@ -10,7 +12,7 @@ class Login_page extends StatefulWidget {
 class _Login_pageState extends State<Login_page> {
   @override
   Widget build(BuildContext context) {
-    double screenwidth = MediaQuery.of(context).size.width;
+  //  double screenwidth = MediaQuery.of(context).size.width;
 
     return SafeArea(
       child: Scaffold(
@@ -150,9 +152,9 @@ class _Login_pageState extends State<Login_page> {
                     //   MaterialPageRoute(builder: (context) => const AboutUs()),
                     // );
                   },
-                  child: Text(
+                  child: const Text(
                     " دروست کردنی ئەکاونت",
-                    style: const TextStyle(
+                    style: TextStyle(
                         decoration: TextDecoration.underline,
                         fontSize: 18,
                         color: Color(0xFF52575C),

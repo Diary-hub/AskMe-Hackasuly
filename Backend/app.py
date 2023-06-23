@@ -40,6 +40,20 @@ def getEmbeddings():
     conversation = getConversationChain(vectorStore)
 
     answer = getAnswer(user_question, conversation)
+    chat_history = answer
+    for i, msg in enumerate(chat_history):
+        if i % 2 == 0:
+            print("User: \n", msg.content)
+            st.write(
+                # user_template.replace("{{MSG}}", msg.content), unsafe_allow_html=True
+            )
+        else:
+            chat_info = msg.content
+            print("AI: \n", msg.content)
+
+            st.write(
+                # bot_template.replace("{{MSG}}", msg.content), unsafe_allow_html=True
+            )
 
     if vectorStore is None:
         response = "Error While Creating Embeddings"
@@ -49,10 +63,10 @@ def getEmbeddings():
     # print("this is the responce \n", response)
     # print("this is the vectorStore \n", vectorStore)
     # print("this is middle conv \n", conversation)
-    print("this is the answer \n", answer)
+    # print("this is the answer \n", answer)
     # print("this is last conv \n", conversation)
 
-    reply = {"reply": response}
+    reply = {"workingState": response, "reply": chat_info}
     # , "embedding": vectorStore
     return jsonify(reply)
 
