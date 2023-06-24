@@ -63,6 +63,7 @@ class _MessagingScreenState extends State<MessagingScreen> {
     await uploadFile().then((value) => {
           setState(() {
             texts = value;
+            print(texts);
           })
         });
 

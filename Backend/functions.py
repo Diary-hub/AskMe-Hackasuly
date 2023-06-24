@@ -8,11 +8,26 @@ from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
-import json
 from dotenv import load_dotenv
+import googletrans
+import json
 import os
 
-# from templates import css, bot_template, user_template
+from google.cloud import translate_v2
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"Backend\googlekey.json"
+
+
+def transtlate(msg, sc="en"):
+    transtlate_client = translate_v2.Client()
+
+    text = msg
+
+    responce = transtlate_client.translate(text, target_language=sc)
+    print(responce["translatedText"])
+
+
+transtlate()
 
 
 def getChunksOfText(raw_texts):
@@ -48,7 +63,12 @@ def getConversationChain(vectorStore):
 
 
 def getAnswer(user_question, conversation):
-    responce = conversation({"question": user_question})
+    responce = conversation(
+        {
+            "question": "(answer based on the contexct provided which is called PDF, dont answer questions not related to the pdf) "
+            + user_question
+        }
+    )
     chat_history = responce["chat_history"]
 
     for i, msg in enumerate(chat_history):
