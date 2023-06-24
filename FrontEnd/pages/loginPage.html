@@ -154,7 +154,6 @@
                     fill="#F2C94C"
                   />
 
-                  
                   <defs>
                     <filter
                       id="filter0_d_17_105"
@@ -276,7 +275,7 @@
           .then((userCredential) => {
             const user = userCredential.user;
             console.log(user["email"]);
-            alert("Your account has been created!");
+            alert("هەژمارەکەت درووستکرا");
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -291,7 +290,7 @@
         signInWithEmailAndPassword(auth, signInEmail, signInPassword)
           .then((userCredential) => {
             const user = userCredential.user;
-            alert("You have signed in successfully!");
+            // alert("You have signed in successfully!");
           })
           .catch((error) => {
             const errorCode = error.code;
