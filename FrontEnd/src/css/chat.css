@@ -11,6 +11,7 @@
 
 :root {
     --green: #119C59;
+    --litegreen: #14b86e;
     --lite_gray: #e8e8e8;
     --gray: #A0A4A8;
     --dark_gray: #a0a4ab;
@@ -19,7 +20,9 @@
     --warningcolor:#ffe383;
 }
 
-
+::selection{
+    background-color: var(--litegreen);
+}
 
 * {
     font-family: NRT_Bolt;
@@ -75,14 +78,14 @@ html::-webkit-scrollbar {
 
 html::-webkit-scrollbar-track {
 
-    background-color: #222;
+    background-color: var(--lite_gray);
 
 }
 
 
 html::-webkit-scrollbar-thumb {
 
-    background-color: var(--yellow);
+    background-color: var(--green);
 
 }
 
@@ -94,21 +97,21 @@ html::-webkit-scrollbar-thumb {
 /* Track */
 
 ::-webkit-scrollbar-track {
-    background-color: #222;
+    background-color: var(--lite_gray);
 }
 
 
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--yellow);
+    background-color: var(--green);
 }
 
 
 /* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: var(--litegreen);
 }
 
 
@@ -127,6 +130,7 @@ body {
     left: 0;
     position: absolute;
     padding-top: 7%;
+    
     background-color: var(--background) !important;
     background-size: cover;
 }
@@ -135,6 +139,7 @@ body {
 
 .msg_card_body {
     overflow-y: auto;
+    
 }
 
 
@@ -152,7 +157,7 @@ body {
     background-color: white !important;
     border: 0 !important;
     color: var(--black) !important;
-    height: 8rem !important;
+    height: 5rem !important;
     overflow-y: auto;
 }
 
@@ -165,20 +170,20 @@ body {
     border-radius: 15px 0 0 15px !important;
 
 
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     background-color: rgba(0, 0, 0, 0.3) !important;
     border: 0 !important;
-    color: white !important;
+    color: var(--background) !important;
     cursor: pointer;
 }
 
 .send_btn {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
 
     border-radius: 0 15px 15px 0 !important;
     background-color: rgba(0, 0, 0, 0.3) !important;
     border: 0 !important;
-    color: white !important;
+    color: var(--background) !important;
     cursor: pointer;
 }
 
@@ -193,9 +198,9 @@ body {
     margin-bottom: auto;
     margin-left: 10px;
     border-radius: 25px;
-    background-color: #333;
+    background-color: var(--dark_gray);
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--background);
     padding: 10px;
     position: relative;
 }
@@ -204,10 +209,11 @@ body {
     margin-top: auto;
     margin-bottom: auto;
     font-size: 1.5rem;
+    color: var(--background);
 
     margin-right: 10px;
     border-radius: 25px;
-    background-color: var(--yellow);
+    background-color: var(--litegreen);
     padding: 10px;
     position: relative;
 }
@@ -279,6 +285,12 @@ body {
     }
 
 
+    .card {
+       
+        padding-top: 9%;
+        
+    }
+
 
 }
 
@@ -289,22 +301,21 @@ body {
         left: -120%;
     }
 
-    #menu {
-        display: block;
-    }
+    
 
-
-    .side_page.toggle {
-        left: 0%;
-
-    }
-
+   
     body {
 
 
         margin-left: 0;
     }
 
+
+    .card {
+       
+        padding-top: 15%;
+        
+    }
 }
 
 
@@ -315,10 +326,11 @@ body {
         font-size: 45%;
     }
 
-    .side_page {
-        font-size: 50%;
+    .card {
+       
+        padding-top: 28%;
+        
     }
-
 
     body {
 
@@ -349,11 +361,9 @@ body {
     }
 
     .card {
-        height: 100vh;
-        width: 100%;
-
-        background-color: rgba(0, 0, 0, 0.4) !important;
+       
+        padding-top: 28%;
+        
     }
-
 
 }
