@@ -1,12 +1,13 @@
 import 'dart:io';
 
-import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'Message.dart';
 // ignore: unused_import
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:syncfusion_flutter_pdf/pdf.dart';
 
 class MessagingScreen extends StatefulWidget {
   const MessagingScreen({super.key});
@@ -22,57 +23,52 @@ class _MessagingScreenState extends State<MessagingScreen> {
   final TextEditingController msg = TextEditingController();
 
   Future uploadFile() async {
-    final dio = Dio();
-
+    String responce = '';
     FilePickerResult? result = await FilePicker.platform.pickFiles();
 
     if (result != null) {
       File file = File(result.files.single.path ?? " ");
 
-      String fileName = file.path.split('/').last;
+      // String fileName = file.path.split('/').last;
       String filePath = file.path;
 
-      FormData data = FormData.fromMap(
-          {'file': await MultipartFile.fromFile(filePath, filename: fileName)});
-
-      var responce =
-          dio.post("", data: data, onSendProgress: (int sent, int total) {
-        print('$sent $total');
-      });
-
-      print(responce.toString());
+      await getText(filePath).then((value) => {
+            setState(() {
+              responce = value;
+            })
+          });
     }
+
+    return responce;
+  }
+
+  Future getText(String path) async {
+    //Load an existing PDF document.
+    final PdfDocument document =
+        PdfDocument(inputBytes: File(path).readAsBytesSync());
+//Extract the text from all the pages.
+    String text = PdfTextExtractor(document).extractText();
+//Dispose the document.
+    document.dispose();
+    return text;
   }
 
   void sendMessage(String question) async {
     if (question == '') {
       return;
     }
+    String texts = '';
     String msggg = '';
+
+    await uploadFile().then((value) => {
+          setState(() {
+            texts = value;
+          })
+        });
 
     // Code to send the user's question to the server using API and receive a response
     // Assuming the response is stored in a variable called 'response'
-    await sendRequest("""Dream Interpretation: Chicken
-Dreams:
-1. dream about white chicken
-Meaning of the Dream: The dream about white chicken suggests the beginning of new life or 
-hope. A flock of white chicken is even more propitious as it suggests more power.
-2. dream about black chicken
-Meaning of the Dream: The dream about black chicken indicates your relationship will be in 
-trouble.
-3. dream about pecking chicken
-Meaning of the Dream: The dream about pecking chicken suggests your deed might be 
-misunderstood.
-4. dream about fighting chicken
-Meaning of the Dream: The dream about fighting chicken suggests something will go wrong and 
-make you upset.
-5. dream about being chased by chicken
-Meaning of the Dream: The dream about being chased by chicken suggests you will have good 
-luck and get a windfall.
-6. dream about being bitten by chicken
-Meaning of the Dream: The dream about being bitten by chicken suggests good news and you 
-will handle interpersonal relationship properly""", question)
-        .then((value) => {msggg = value});
+    await sendRequest(texts, question).then((value) => {msggg = value});
 
     setState(() {
       messages
@@ -199,7 +195,6 @@ will handle interpersonal relationship properly""", question)
               suffixIcon: IconButton(
                 onPressed: () {
                   // Code to send the message
-                  // uploadFile();
                   sendMessage(msg.text);
                 },
                 icon: const Icon(Icons.send),
