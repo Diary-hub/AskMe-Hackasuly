@@ -117,14 +117,14 @@ class _MessagingScreenState extends State<MessagingScreen> {
           textAlign: TextAlign.center,
           text: const TextSpan(children: [
             TextSpan(
-                text: 'Ask Me!',
+                text: 'لێم بپرسسە !',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                 )),
             TextSpan(text: '\n'),
             TextSpan(
-              text: "I'm not GPT guys 😉",
+              text: "نیم GPT من 😉",
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
@@ -185,7 +185,7 @@ class _MessagingScreenState extends State<MessagingScreen> {
             decoration: InputDecoration(
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              hintText: 'Type your message',
+              hintText: 'نامەکەت لێرە بنووسە',
               filled: true,
               fillColor: Colors.grey[200],
               border: OutlineInputBorder(
