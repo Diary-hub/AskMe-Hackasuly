@@ -1,3 +1,4 @@
+// ignore: unused_import
 import 'package:askme/chat.dart';
 // ignore: unused_import
 import 'package:askme/login.dart';
@@ -21,10 +22,10 @@ class MyApp extends StatelessWidget {
           options: DefaultFirebaseOptions.currentPlatform),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          return MaterialApp(
+          return const MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'لێم بپرسە',
-            home: MessagingScreen(),
+            home: Login_page(),
 
             // home: Login_page(),
           );

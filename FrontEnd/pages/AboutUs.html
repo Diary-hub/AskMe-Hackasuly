@@ -23,7 +23,7 @@
           style="text-decoration: underline; text-decoration-color: #ffe383"
           >دەربارە</a
         >
-        <a href="" id="out">x</a>
+        <a href="" id="out" style="color: rgb(253, 125, 125)">چوونەدەرەوە</a>
       </nav>
       <a href="#main">
         <svg
@@ -188,5 +188,58 @@
         </div>
       </div>
     </div>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+    <script type="module">
+      //Update the below URL with the appropriate version if necessary.
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        onAuthStateChanged,
+        signOut,
+        //Update the below URL with the appropriate version if necessary.
+      } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+      // INSERT YOUR FIREBASE CONFIG OBJECT HERE
+      var firebaseConfig = {
+        apiKey: "AIzaSyAlmY0dAmdiRpSi3Gos5JpdsOqT43SiI2k",
+        authDomain: "askme-ask.firebaseapp.com",
+        projectId: "askme-ask",
+        storageBucket: "askme-ask.appspot.com",
+        messagingSenderId: "591150554844",
+        appId: "1:591150554844:web:a9509a70941b3a69f09e19",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      const out = document.querySelector("#out");
+
+      const checkAuthState = async () => {
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            console.log(user["email"]);
+          } else {
+            console.log("not User");
+            window.location.replace("http://10.147.17.49:5000/register");
+          }
+        });
+      };
+
+      const userSignOut = async () => {
+        await signOut(auth);
+      };
+
+      checkAuthState();
+      out.addEventListener("click", userSignOut);
+    </script>
   </body>
 </html>

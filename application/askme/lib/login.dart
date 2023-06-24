@@ -1,15 +1,19 @@
-import 'package:askme/test.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:askme/signup.dart';
 
+import 'chat.dart';
+
+// ignore: camel_case_types
 class Login_page extends StatefulWidget {
   const Login_page({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _Login_pageState createState() => _Login_pageState();
 }
 
+// ignore: camel_case_types
 class _Login_pageState extends State<Login_page> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -27,7 +31,7 @@ class _Login_pageState extends State<Login_page> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Test(),
+                        builder: (context) => const MessagingScreen(),
                       ))
                 });
       } on FirebaseAuthException catch (e) {
