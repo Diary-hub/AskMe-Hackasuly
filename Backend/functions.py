@@ -24,10 +24,11 @@ def transtlate(msg, sc="en"):
     text = msg
 
     responce = transtlate_client.translate(text, target_language=sc)
-    print(responce["translatedText"])
+    # print(responce["translatedText"])
+    return responce["translatedText"]
 
 
-transtlate()
+transtlate("whatsup")
 
 
 def getChunksOfText(raw_texts):

@@ -60,6 +60,7 @@ def getEmbeddings():
     resived = request.get_json()
     raw_texts = resived["texts"]
     user_question = resived["question"]
+    user_question = transtlate(user_question, sc="en")
 
     # get raw texts
     # raw_texts = getAllTexts(pdf_docs)
@@ -100,7 +101,7 @@ def getEmbeddings():
     # print("this is the answer \n", answer)
     # print("this is last conv \n", conversation)
 
-    reply = {"workingState": response, "reply": chat_info}
+    reply = {"workingState": response, "reply": transtlate(chat_info, sc="ckb")}
     # , "embedding": vectorStore
     return jsonify(reply)
 
