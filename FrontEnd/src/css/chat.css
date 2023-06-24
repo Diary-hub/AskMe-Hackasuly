@@ -17,10 +17,10 @@
     --dark_gray: #a0a4ab;
     --black: #25282b;
     --background: #faf9f7;
-    --warningcolor:#ffe383;
+    --warningcolor: #ffe383;
 }
 
-::selection{
+::selection {
     background-color: var(--litegreen);
 }
 
@@ -130,7 +130,7 @@ body {
     left: 0;
     position: absolute;
     padding-top: 7%;
-    
+
     background-color: var(--background) !important;
     background-size: cover;
 }
@@ -139,12 +139,12 @@ body {
 
 .msg_card_body {
     overflow-y: auto;
-    
+
 }
 
 
 .card-footer {
-    padding: 2rem ;
+    padding: 2rem;
     background-color: var(--green);
     border-top: 0 !important;
 }
@@ -286,9 +286,9 @@ body {
 
 
     .card {
-       
+
         padding-top: 9%;
-        
+
     }
 
 
@@ -301,9 +301,9 @@ body {
         left: -120%;
     }
 
-    
 
-   
+
+
     body {
 
 
@@ -312,9 +312,9 @@ body {
 
 
     .card {
-       
+
         padding-top: 15%;
-        
+
     }
 }
 
@@ -327,9 +327,9 @@ body {
     }
 
     .card {
-       
+
         padding-top: 28%;
-        
+
     }
 
     body {
@@ -361,9 +361,9 @@ body {
     }
 
     .card {
-       
+
         padding-top: 28%;
-        
+
     }
 
 }

@@ -18,7 +18,7 @@
     --background: #faf9f7;
 }
 
-label{
+label {
     position: absolute;
     text-align: right;
 }
@@ -238,6 +238,5 @@ header .login_form ul li .form_submit:hover {
     font-size: 1.4rem;
     color: var(--green);
     background: var(--background);
-   
-}
 
+}
