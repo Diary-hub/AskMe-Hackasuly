@@ -11,12 +11,64 @@
 
 :root {
     --green: #119C59;
+    --litegreen: #14b86e;
     --lite_gray: #e8e8e8;
     --gray: #A0A4A8;
     --dark_gray: #a0a4ab;
     --black: #25282b;
     --background: #faf9f7;
+    --warningcolor: #ffe383;
 }
+
+
+::selection {
+    background-color: var(--litegreen);
+}
+
+
+html::-webkit-scrollbar {
+
+    width: 1.4rem;
+}
+
+html::-webkit-scrollbar-track {
+
+    background-color: var(--lite_gray);
+
+}
+
+
+html::-webkit-scrollbar-thumb {
+
+    background-color: var(--green);
+
+}
+
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background-color: var(--lite_gray);
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--green);
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--litegreen);
+}
+
 
 
 
