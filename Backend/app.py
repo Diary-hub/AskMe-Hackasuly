@@ -21,6 +21,16 @@ def loginPage_get():
     return render_template("loginPage.html")
 
 
+@app.get("/chat")
+def chatPage_get():
+    return render_template("chat.html")
+
+
+@app.get("/aboutus")
+def aboutUsPage_get():
+    return render_template("AboutUs.html")
+
+
 @app.get("/register")
 def signupPage_get():
     return render_template("signUp.html")
