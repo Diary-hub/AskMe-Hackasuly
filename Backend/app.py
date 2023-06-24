@@ -41,6 +41,20 @@ def homePage_get():
     return render_template("home.html")
 
 
+@app.post("/fileTest")
+def getFileTest():
+    resived = request.get_json()
+    raw_texts = resived["file"]
+    raw_texts2 = resived["data"]
+
+    if raw_texts is not None or raw_texts2 is not None:
+        reply = {"workingState": "Done"}
+    else:
+        reply = {"workingState": "Not Done"}
+
+    return jsonify(reply)
+
+
 @app.post("/getEmbeddings")
 def getEmbeddings():
     resived = request.get_json()
