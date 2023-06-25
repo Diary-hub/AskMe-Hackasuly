@@ -1,0 +1,131 @@
+import 'package:flutter/material.dart';
+
+// ignore: camel_case_types
+class chat_page extends StatefulWidget {
+  const chat_page({Key? key}) : super(key: key);
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _chat_pageState createState() => _chat_pageState();
+}
+
+// ignore: camel_case_types
+class _chat_pageState extends State<chat_page> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 248, 230, 230),
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF119C59),
+          centerTitle: true,
+          title: RichText(
+            textAlign: TextAlign.center,
+            text: const TextSpan(children: [
+              TextSpan(
+                  text: 'Ask Me!',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  )),
+              TextSpan(text: '\n'),
+              TextSpan(
+                text: "I'm not GPT guys 😉",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ]),
+          ),
+        ),
+        body: Column(children: <Widget>[
+          Expanded(
+            child: Column(
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        constraints: BoxConstraints(
+                          maxWidth: MediaQuery.of(context).size.width * 0.80,
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 10),
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                              )
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15)),
+                        child: const Text('Hii, Welcome back King'),
+                      ),
+                    )
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                        constraints: BoxConstraints(
+                          maxWidth: MediaQuery.of(context).size.width * 0.80,
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 10),
+                        decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                              )
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15)),
+                        child: const Text('Hii, Welcome back King'),
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            child: Text('Send MSG Area'),
+          ),
+        ]),
+      ),
+    );
+  }
+}
+///////////////////////////////////////////////////////////////////////////////
+  body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: messages.length,
+              itemBuilder: (context, index) {
+                final message = messages[index];
+                return ListTile(
+                  title: Text(message.sender),
+                  subtitle: Text(message.content),
+                );
+              },
+            ),
+          ),
+          TextField(
+            onSubmitted: sendMessage,
+            decoration: const InputDecoration(
+              hintText: 'Type your message',
+            ),
+          ),
+        ],
+      ),

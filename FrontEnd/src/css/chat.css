@@ -183,7 +183,7 @@ body {
     border-radius: 0 15px 15px 0 !important;
     background-color: rgba(0, 0, 0, 0.3) !important;
     border: 0 !important;
-    color: var(--background) !important;
+    color: var(--green) !important;
     cursor: pointer;
 }
 
@@ -191,14 +191,32 @@ body {
 
 
 
-
+.btn {
+    background-color: var(--green) !important;
+    -webkit-border-radius: 60;
+    -moz-border-radius: 60;
+    border-radius: 100px;
+    text-shadow: 1px 1px 3px #666666;
+    font-family: Courier New;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    border: solid #000000 1px;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background-color: #0a5303;
+    
+    text-decoration: none;
+  }
 
 .msg_cotainer {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 10px;
     border-radius: 25px;
-    background-color: var(--dark_gray);
+    background-color: var(--black);
     font-size: 1.5rem;
     color: var(--background);
     padding: 10px;
